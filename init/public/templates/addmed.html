@@ -1,0 +1,50 @@
+<a href ui-sref="home">Go Back</a>
+
+<h1>Add a Medication</h1>
+
+<form name="medForm"
+  ng-submit="createMedication()"
+  >
+  <div>
+    <label>Name</label>
+    <input type="text"
+      placeholder="Medication Name"
+      ng-model="med.pillName"
+      required
+      >
+  </div>
+
+  <div>
+    <label>Start Time</label>
+    <input type="number"
+      placeholder="Start Time"
+      ng-model="med.dispensingTime"
+      required
+      >
+  </div>
+
+  <div>
+    <label>Number of Times per Day</label>
+    <input type="number"
+      placeholder="Number of Times"
+      ng-model="med.dispensingFreq"
+      required
+      >
+  </div>
+
+  <div>
+    <label>Number of Pills per Dose</label>
+    <input type="number"
+      placeholder="Dosage"
+      ng-model="med.dosage"
+      >
+  </div>
+
+  <div><input type="submit"></div>
+</form>
+
+<h3>Summary</h3>
+<strong>Name</strong>: {{med.pillName}} <br>
+<strong>Start Time</strong>: {{med.dispensingTime}} <br>
+<strong>Dispensing Frequency</strong>: {{med.dispensingFreq}}<br>
+<strong>Dosage</strong>: {{med.dosage}} <br>
