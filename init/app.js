@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+//configuring Serial Communication is in bin/www and in serial.js
 
 // connecting to the Database 
 var mongoose = require('mongoose');

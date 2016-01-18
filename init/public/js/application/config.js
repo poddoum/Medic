@@ -48,6 +48,12 @@ function config($stateProvider, $urlRouterProvider) {
           return _med.getAllLogs();
         }]
       }
+    })
+
+    .state('serialtest',{
+      url:'/serialtest',
+      templateUrl: 'templates/serialtest.html',
+      controller: 'serialtestController' 
     });
 
   // Declare our default state to be the home state

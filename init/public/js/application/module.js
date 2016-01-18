@@ -1,5 +1,6 @@
 
 // Load the AutoMedic module
 angular.module('autoMedic', [
-  'ui.router'
+  'ui.router',
+  'btford.socket-io'
 ]);
