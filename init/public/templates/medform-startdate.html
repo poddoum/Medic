@@ -1,0 +1,15 @@
+  <div>
+    <label>Start Date</label>
+    <input type="date"
+      placeholder="Start Date"
+      ng-model="med.startDate"
+      min="{{currentdate| date:'yyyy-MM-dd'}}"
+      value ="{{currentdate| date:'yyyy-MM-dd'}}"
+      >
+  </div>
+
+  <h1>CurrentDate: {{med.startDate|date:'MMM d, y'}}</h1>
+  <h2>{{currentdate}}</h2>
+
+<a href ui-sref='medform.dosage'>Pervious</a>
+<a href ui-sref='medform.specialinstructions'>Next</a>

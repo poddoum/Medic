@@ -7,7 +7,7 @@
   <strong>id</strong>: {{log._id}} <br>
   <strong>Name</strong>: {{log.pillName}} <br>
   <strong>Amount Dispensed</strong>: {{log.dosage}} <br>
-  <strong>Date Dispensed</strong>: {{log.dateDispensed}} <br>
+  <strong>Date Dispensed</strong>: {{log.dateDispensed|date:'medium'}} <br>
 
   <hr ng-if="!$last">
 </div>

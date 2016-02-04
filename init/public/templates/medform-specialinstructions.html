@@ -1,0 +1,35 @@
+<h3>Special Instructions</h3>
+<div>
+	<label>
+    <input type="checkbox" ng-model="med.specialInstructions[0]" ng-true-value="'None'">
+    None
+  	</label><br/>
+    <label>
+    <input type="checkbox" ng-model="med.specialInstructions[1]" ng-true-value="'With Water'">
+    With Water
+    </label><br/>
+    <label>
+    <input type="checkbox" ng-model="med.specialInstructions[2]" ng-true-value="'Before a Meal'">
+    Before a Meal
+    </label><br/>
+    <label>
+    <input type="checkbox" ng-model="med.specialInstructions[3]" ng-true-value="'With a Meal'">
+    With a Meal
+    </label><br/>
+    <label>
+    <input type="checkbox" ng-model="med.specialInstructions[4]" ng-true-value="'After A Meal'">
+    After a Meal
+    </label><br/>
+    <label>
+    <input type="checkbox" ng-model="other" ng-true-value="'other'" ng-change="change()">
+    Other
+  </label><br/>
+  <label ng-if="other">
+  <textarea rows="4" cols = "40" ng-model="med.specialInstructions[5]"></textarea>
+  </label>
+<div>
+
+<p>Selected Value: {{med.specialInstructions}}</p>
+
+<a href ui-sref='medform.startdate' >Pervious</a>
+<a href ui-sref='medform.summary' >Next</a>

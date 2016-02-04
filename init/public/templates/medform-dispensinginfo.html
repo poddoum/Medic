@@ -1,0 +1,25 @@
+<div>
+	<label>
+    <input type="radio" ng-model="med.dispensingFreq" value=1>
+    Once Daily
+  	</label><br/>
+  	<label>
+    <input type="radio" ng-model="med.dispensingFreq" value=2>
+    Twice Daily
+  	</label><br/>
+  	<label>
+    <input type="radio" ng-model="med.dispensingFreq" value=3>
+    Three Times Daily
+  	</label><br/>
+  	<input type="radio" ng-model="med.dispensingFreq" value=0>
+    Self Medicate
+  	</label><br/>
+  	<input type="radio" ng-model="med.dispensingFreq" value=-1>
+    Other
+  	</label><br/>
+<div>
+
+<p>Selected Value: {{med.dispensingFreq}}</p>
+
+<a href ui-sref='medform.medication' >Pervious</a>
+<a href ui-sref='medform.dosage' >Next</a>

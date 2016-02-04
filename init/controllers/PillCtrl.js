@@ -13,7 +13,11 @@ exports.createPill= function(req, res, next) {
 	newPill.inventorySlot = req.body.inventorySlot;
 	newPill.dispensingTime = req.body.dispensingTime;
 	newPill.dispensingFreq = req.body.dispensingFreq;
+	newPill.dosage = req.body.dosage;
 	newPill.dateAdded = req.body.dateAdded;
+	newPill.startDate = req.body.startDate;
+	newPill.lastDispensed = req.body.lastDispensed;
+	newPill.specialInstructions = req.body.specialInstructions;
 
 	// save the new medication in database
 	newPill.save(function(err,savedPill){
@@ -69,6 +73,16 @@ exports.updatePill = function(req,res,next){
 		}
 		if(req.body.dispensingTime){ 
 			pill.dispensingTime = req.body.dispensingTime;
+		}
+		if(req.body.dosage){
+			pill.dosage = req.body.dosage;
+		}
+		if(req.body.startDate) pill.startDate = req.body.startDate;
+		if (req.body.lastDispensed) {
+			pill.lastDispensed = req.body.lastDispensed;
+		}
+		if (req.body.specialInstructions) {
+			pill.specialInstructions = req.body.specialInstructions; 
 		}
 
 		// Save the updated pill in databasse
