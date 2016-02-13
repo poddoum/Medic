@@ -14,9 +14,23 @@ function medformController($scope, $state, _med) {
 
   // Our form will fill this in for us
   $scope.med = { };
-  $scope.currentdate = new Date();
-  $scope.startDate = new Date();
+  $scope.med.dispensingFreq= 1;// default to daily
+  $scope.inputTime=[1];
+  $scope.med.dispensingTime = []; // starts as an array  
+  $scope.currentdate = new Date();// current date used on medform-startdate  
+  $scope.med.startDate = new Date();// stores the startdate for the medication to be dispensed
+
+  
   $scope.med.specialInstructions = [false,false,false,false,false,'Enter More Instructions'];
+
+  //changes the number of Time inputs
+  $scope.radioChange=function(){
+    $scope.inputTime = [];
+    $scope.med.dispensingTime = [];
+    for(i =0; i<$scope.med.dispensingFreq;i++){
+      $scope.inputTime[i]=i;
+    };
+  }
 
   $scope.change=function(){
     $scope.med.specialInstructions[5] = 'Enter More Instructions';

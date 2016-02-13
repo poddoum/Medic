@@ -1,24 +1,29 @@
 <div>
 	<label>
-    <input type="radio" ng-model="med.dispensingFreq" value=1>
+    <input type="radio" ng-model="med.dispensingFreq" value=1 ng-change="radioChange()">
     Once Daily
   	</label><br/>
   	<label>
-    <input type="radio" ng-model="med.dispensingFreq" value=2>
+    <input type="radio" ng-model="med.dispensingFreq" value=2 ng-change="radioChange()">
     Twice Daily
   	</label><br/>
   	<label>
-    <input type="radio" ng-model="med.dispensingFreq" value=3>
+    <input type="radio" ng-model="med.dispensingFreq" value=3 ng-change="radioChange()">
     Three Times Daily
   	</label><br/>
-  	<input type="radio" ng-model="med.dispensingFreq" value=0>
+  	<input type="radio" ng-model="med.dispensingFreq" value=0 ng-change="radioChange()">
     Self Medicate
   	</label><br/>
-  	<input type="radio" ng-model="med.dispensingFreq" value=-1>
+  	<input type="radio" ng-model="med.dispensingFreq" value=-1 ng-change="radioChange()">
     Other
   	</label><br/>
 <div>
 
+<div ng-if="med.dispensingFreq!=0">
+	<div ng-repeat = "time in inputTime">
+		<p>{{time}}</p>
+	</div>	
+</div>
 <p>Selected Value: {{med.dispensingFreq}}</p>
 
 <a href ui-sref='medform.medication' >Pervious</a>
