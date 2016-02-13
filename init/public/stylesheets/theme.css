@@ -1,5 +1,6 @@
 body {
-  padding:45px;
+  margin-top:45px;
+  margin-bottom:20px;
   font-family-sans-serif: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background:#f6f1ed;
   color: #3b3a36 ;
@@ -29,6 +30,10 @@ body {
 .navbar-default .navbar-toggle {
     border-color: transparent;
     color: #3b3a36 !important;
+}
+
+.navbar-header .glyphicon{
+	color:#b56969;
 }
 
 a {

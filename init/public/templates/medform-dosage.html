@@ -1,3 +1,15 @@
+<div class="form-group">
+    <label class="control-label col-sm-5">Number of Pills per Dose: </label>
+    <div class="col-sm-6">
+      <input type="number" 
+      class="form-control" 
+      placeholder="Dosage" 
+      ng-model="med.dosage"
+      >
+    </div>
+  </div>  
+
+<!--
   <div>
     <label>Number of Pills per Dose</label>
     <input type="number"
@@ -5,7 +17,17 @@
       ng-model="med.dosage"
       >
   </div></br>
-
-
-<a href ui-sref='medform.dispensinginfo' >Pervious</a>
-<a href ui-sref='medform.startdate' >Next</a>
+-->
+</br>
+<div class="form-line">
+<div class="col-xs-4 col-xs-offset-2">
+    <a href ui-sref='medform.dispensinginfo' class="btn btn-block btn-default">
+    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+    </a>
+</div>
+<div class="col-xs-4 ">
+    <a href ui-sref='medform.startdate' class="btn btn-block btn-default">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

@@ -26,5 +26,17 @@
 </div>
 <p>Selected Value: {{med.dispensingFreq}}</p>
 
-<a href ui-sref='medform.medication' >Pervious</a>
-<a href ui-sref='medform.dosage' >Next</a>
+<div class="form-line">
+<div class="col-xs-4 col-xs-offset-2">
+    <a href ui-sref='medform.medication' class="btn btn-block btn-default">
+    <span class="glyphicon glyphicon-circle-arrow-left"></span> Previous
+    </a>
+</div>
+<div class="col-xs-4 ">
+    <a href ui-sref='medform.dosage' class="btn btn-block btn-default">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>
+
+
