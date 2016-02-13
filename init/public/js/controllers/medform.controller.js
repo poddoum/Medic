@@ -11,6 +11,7 @@ medformController.$inject = [
 
 function medformController($scope, $state, _med) {
   $scope.createMed= createMed;
+  $state.go('medform.medication');
 
   // Our form will fill this in for us
   $scope.med = { };
