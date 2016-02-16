@@ -13,6 +13,7 @@ function medformController($scope, $state, _med) {
   $scope.createMed= createMed;
   $state.go('medform.medication');
 
+
   // Our form will fill this in for us
   $scope.med = { };
   $scope.med.dispensingFreq= 1;// default to daily
@@ -20,7 +21,9 @@ function medformController($scope, $state, _med) {
   $scope.med.dispensingTime = []; // starts as an array  
   $scope.currentdate = new Date();// current date used on medform-startdate  
   $scope.med.startDate = new Date();// stores the startdate for the medication to be dispensed
-
+  $scope.hstep = 1; 
+  $scope.mstep = 15;
+  $scope.ismeridian = true; 
   
   $scope.med.specialInstructions = [false,false,false,false,false,'Enter More Instructions'];
 
@@ -30,6 +33,7 @@ function medformController($scope, $state, _med) {
     $scope.med.dispensingTime = [];
     for(i =0; i<$scope.med.dispensingFreq;i++){
       $scope.inputTime[i]=i;
+      $scope.med.dispensingTime[i]= new Date();
     };
   }
 

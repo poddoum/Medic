@@ -1,4 +1,5 @@
-<div>
+<div class="row">
+<div class="col-xs-5">
 	<label>
     <input type="radio" ng-model="med.dispensingFreq" value=1 ng-change="radioChange()">
     Once Daily
@@ -17,12 +18,13 @@
   	<input type="radio" ng-model="med.dispensingFreq" value=-1 ng-change="radioChange()">
     Other
   	</label><br/>
-<div>
+</div>
 
-<div ng-if="med.dispensingFreq!=0">
+<div ng-if="med.dispensingFreq!=0" class="col-xs-5">
 	<div ng-repeat = "time in inputTime">
-		<p>{{time}}</p>
+		 <uib-timepicker ng-model="med.dispensingTime[$index]" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
 	</div>	
+</div>
 </div>
 <p>Selected Value: {{med.dispensingFreq}}</p>
 
