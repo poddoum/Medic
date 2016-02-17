@@ -27,6 +27,22 @@ function medformController($scope, $state, _med) {
   
   $scope.med.specialInstructions = [false,false,false,false,false,'Enter More Instructions'];
 
+  //Date Picker 
+
+  $scope.minDate = new Date();
+
+  $scope.maxDate = new Date(2020,5,22); 
+  $scope.dateOptions = { 
+    formatYear: 'yy',
+    startingDay: 1};
+   $scope.popup1 = {
+    opened: false
+  };
+
+  $scope.open = function() {
+    $scope.popup1.opened = true;
+  };
+
   //changes the number of Time inputs
   $scope.radioChange=function(){
     $scope.inputTime = [];
@@ -40,6 +56,7 @@ function medformController($scope, $state, _med) {
   $scope.change=function(){
     $scope.med.specialInstructions[5] = 'Enter More Instructions';
   }
+
 
   function createMed() {
     if ($scope.medicationForm.$valid) {
