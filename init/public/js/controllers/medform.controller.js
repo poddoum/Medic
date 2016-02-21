@@ -26,7 +26,7 @@ function medformController($scope, $state, _med) {
   $scope.ismeridian = true; 
   
   $scope.med.specialInstructions = [false,false,false,false,false,'Enter More Instructions'];
-
+ 
   //Date Picker 
 
   $scope.minDate = new Date();
@@ -53,10 +53,18 @@ function medformController($scope, $state, _med) {
     };
   }
 
+    $scope.timeSort=function(){
+    $scope.med.dispensingTime.sort();
+    console.log("start");
+  }
+
+
   $scope.change=function(){
     $scope.med.specialInstructions[5] = 'Enter More Instructions';
   }
 
+
+  $scope.displayFreq= ['Self Medicate','Once Daily','Twice Daily','Three Times Daily'];
 
   function createMed() {
     if ($scope.medicationForm.$valid) {
