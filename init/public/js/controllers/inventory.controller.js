@@ -11,14 +11,34 @@ inventoryController.$inject = [
   // Resolves
   'meds'
 ];
-
 function inventoryController($scope, _med, meds) {
   $scope.meds = meds.data;
   console.log(meds);
 
+
+  $scope.currentIndex = 0 ;
+  $scope.setCurrentMedIndex = function (index) {
+    $scope.currentIndex = index;
+  } ;
+  $scope.isCurrentMedIndex = function (index) {
+    return $scope.currentIndex === index ;
+  } ;
+
+  $scope.nextMed = function() {
+    $scope.currentIndex = ($scope.currentIndex < $scope.meds.length -1) ? ++$scope.currentIndex : 0 ;
+  } ;
+  $scope.prevMed = function() {
+    $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.meds.length-1 ;
+  } ;
+
+
   $scope.deleteMed = deleteMed;
 
   function deleteMed(med, index) {
+
+
+    $scope.currentIndex = --$scope.currentIndex ;
+
     _med.delete(med._id)
       .then(function() {
 
@@ -29,6 +49,7 @@ function inventoryController($scope, _med, meds) {
 
   $scope.dispensed={}; 
   $scope.dispenseMed = dispenseMed;
+
   
   function dispenseMed(med,index){
     $scope.dispensed.pillName = $scope.meds[index].pillName;

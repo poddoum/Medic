@@ -7,6 +7,11 @@ body {
   height: 100%;
 }
 
+.homePill {
+  width:100px;
+  height:100px;
+}
+
 .navbar {
     margin-bottom: 0;
     background-color: #fff;

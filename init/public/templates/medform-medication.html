@@ -4,7 +4,8 @@
   <div class="col-xs-8">
     <input type="text" class="form-control" placeholder="Medication Name" 
     ng-model="med.pillName"
-    required>
+    required
+    ng-virtual-keyboard="{relative: false}">
   </div>
 </div>
 
@@ -13,7 +14,8 @@
   <div class="col-xs-8">
     <input type="number" class="form-control" placeholder="Quantity" 
     ng-model="med.amount"
-    required>
+    required
+    ng-virtual-keyboard="{kt: 'Numerico'}">
   </div>
 </div>
 </br>

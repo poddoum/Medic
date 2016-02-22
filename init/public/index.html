@@ -4,7 +4,7 @@
   <title>Angular Medication Monitoring Application</title>
   <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="stylesheets/theme.css">
-
+  <link rel='stylesheet' href='bower_components/angular-virtual-keyboard/release/angular-virtual-keyboard.css'>
 </head>
 <body ng-app="autoMedic"ng-style ="{'background-color':'#f6f1ed'}">
   <div class=>
@@ -16,7 +16,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span> 
         </button>
-        <a class="navbar-brand" ui-sref-active="active"  ui-sref="home"><span class="glyphicon glyphicon-baby-formula"></span> Auto<span style = "color:#b56969">MED</span>ic</a>
+        <a class="navbar-brand" ui-sref-active="active"  ui-sref="home">
+          <span class="glyphicon glyphicon-plus"></span> Auto<span style = "color:#b56969">MED</span>ic</a>
       </div>
         <div class="collapse navbar-collapse" uib-collapse="!isCollapsed" id="myNavbar">
         <ul class="nav navbar-nav">
@@ -47,6 +48,8 @@
 <script type="text/javascript" src="bower_components/socket.io-client/socket.io.js"></script>
 <script type="text/javascript" src="bower_components/angular-socket-io/socket.js"></script>
 <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-virtual-keyboard/release/angular-virtual-keyboard.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-clock/angular-clock.js"></script>
 
 
 

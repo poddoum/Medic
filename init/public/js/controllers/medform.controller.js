@@ -22,7 +22,7 @@ function medformController($scope, $state, _med) {
   $scope.currentdate = new Date();// current date used on medform-startdate  
   $scope.med.startDate = new Date();// stores the startdate for the medication to be dispensed
   $scope.hstep = 1; 
-  $scope.mstep = 15;
+  $scope.mstep = 1;
   $scope.ismeridian = true; 
   
   $scope.med.specialInstructions = [false,false,false,false,false,'Enter More Instructions'];
@@ -55,7 +55,6 @@ function medformController($scope, $state, _med) {
 
     $scope.timeSort=function(){
     $scope.med.dispensingTime.sort();
-    console.log("start");
   }
 
 
