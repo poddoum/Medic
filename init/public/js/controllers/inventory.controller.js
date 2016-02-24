@@ -59,6 +59,7 @@ function inventoryController($scope, _med, meds) {
       .then(function(){
         $scope.edited = { 
         'amount': --$scope.meds[index].amount};
+        _med.notify(med); // sends an SMS message 
         _med.update(med._id, $scope.edited); 
       });
   }

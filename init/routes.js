@@ -6,8 +6,13 @@ var router = express.Router();
 // This is the controller
 var PillCtrl = require("./controllers/PillCtrl.js");
 var LogCtrl = require("./controllers/LogCtrl.js");
+var NotifyCtrl = require("./controllers/NotifyCtrl.js") ;
 
 // Pill API ENDPOINTS
+
+// Send SMS message
+
+router.post('/notify',NotifyCtrl.sendNotification);
 
 // Create a Pill
 router.post('/meds',PillCtrl.createPill);
