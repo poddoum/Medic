@@ -7,11 +7,12 @@ angular.module('autoMedic')
 inventoryController.$inject = [
   '$scope',
   '_med',
+  '$state',
 
   // Resolves
   'meds'
 ];
-function inventoryController($scope, _med, meds) {
+function inventoryController($scope, _med, $state, meds) {
   $scope.meds = meds.data;
   console.log(meds);
 
@@ -60,7 +61,10 @@ function inventoryController($scope, _med, meds) {
         $scope.edited = { 
         'amount': --$scope.meds[index].amount};
         _med.notify(med); // sends an SMS message 
-        _med.update(med._id, $scope.edited); 
+        _med.update(med._id, $scope.edited)
+          .then(function(){
+          $state.go('dispensing',{medID:med._id});
+        }); 
       });
   }
 }

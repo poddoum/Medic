@@ -1,11 +1,12 @@
-
-<div class="row">
-    <div class="text-center">
+ <div class="text-center">
         <h4>Special Instructions</h4>
 
     </div>
-    <div class="col-xs-4 col-xs-offset-5">
-      <p "text-left"> Click all that apply </p>  
+
+
+<div class="row">
+    <div class="col-xs-2 col-xs-offset-2">
+       <p "text-left"> Click all that apply </p>  
       <div class="btn-group-vertical">
         <label class="btn btn-default" ng-model="med.specialInstructions[0]"  btn-checkbox-true="'None'"uib-btn-checkbox>None</label>
         <label class="btn btn-default" ng-model="med.specialInstructions[1]" btn-checkbox-true="'With Water'" uib-btn-checkbox>With Water</label>
@@ -13,19 +14,20 @@
         <label class="btn btn-default" ng-model="med.specialInstructions[3]" btn-checkbox-true="'With a Meal'" uib-btn-checkbox>With a Meal</label>
         <label class="btn btn-default" ng-model="med.specialInstructions[4]" btn-checkbox-true="'After A Meal'" uib-btn-checkbox>After a Meal</label>
         <label class="btn btn-default" ng-model="other" ng-change="change()" uib-btn-checkbox>Other</label>
+
     </div>
-    
-</div>
-<div class="row">
-    <div class="col-xs-6 col-xs-offset-3">  
+    </div>
+    <div class="col-xs-5">
       <div ng-if="other">
         <textarea class="form-control" rows="4" cols = "40" ng-model="med.specialInstructions[5]" ng-virtual-keyboard="{relative: false}"></textarea>
+    </div>  
     </div>
-</div>
-</div>
-</div>
+  </div>
 </div>
 
+</div>
+</div>
+</div>
 <!--<p>Selected Value: {{med.specialInstructions}}</p>-->
 <br>
 <div class="form-line">
