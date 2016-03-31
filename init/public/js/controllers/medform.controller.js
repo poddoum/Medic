@@ -18,7 +18,8 @@ function medformController($scope, $state, _med) {
   $scope.med = { };
   $scope.med.dispensingFreq= 1;// default to daily
   $scope.inputTime=[1];
-  $scope.med.dispensingTime = []; // starts as an array  
+  $scope.med.dispensingTime = []; // starts as an array
+  $scope.med.dispensingTime[0] = new Date(99,1,1);  
   $scope.currentdate = new Date();// current date used on medform-startdate  
   $scope.med.startDate = new Date();// stores the startdate for the medication to be dispensed
   $scope.hstep = 1; 
@@ -30,22 +31,30 @@ function medformController($scope, $state, _med) {
   
   //used as am imventory check
   $scope.inventoryCheck = [];
+  $scope.inventoryPossible = [1,2,3,4,5,6,7,8];
 
   // gets all the inventory slots 
   _med.getAll().then(function(data) {
     data.data.forEach(function(elem){ 
       $scope.inventoryCheck.push(elem.inventorySlot);
-    }); // obtains all the inventory slots 
+    }); // obtains all the inventory slots
+
       $scope.inventoryCheck.sort(); // sorts then in a array
       $scope.inventoryCheck.some(function(elem,index){
-        if((index+1)!=elem){
+        if(index+1!=elem){
           $scope.free = index+1;
-          //console.log(index+1);
+          console.log(index+1);
           return elem != index+1;
         }
       });
       //console.log($scope.inventoryCheck);     
 });
+
+  // gets the schedule
+  _med.getSchedule().then(function(data){
+    $scope.schedule = data.data[0];
+    console.log($scope.schedule);
+  });
   
   $scope.med.specialInstructions = [false,false,false,false,false,'Enter More Instructions'];
  
@@ -71,8 +80,8 @@ function medformController($scope, $state, _med) {
     $scope.med.dispensingTime = [];
     for(i =0; i<$scope.med.dispensingFreq;i++){
       $scope.inputTime[i]=i;
-      $scope.med.dispensingTime[i]= new Date();
-    };
+      $scope.med.dispensingTime[i]= new Date(99,01,1);
+    }
   }
 
     $scope.timeSort=function(){
@@ -92,12 +101,36 @@ function medformController($scope, $state, _med) {
       //$scope.inventoryCheck =_med.getAll().data;
         if($scope.free !=null){
         $scope.med.inventorySlot = $scope.free;
-      };
-        $scope.med.dateAdded = new Date(); 
+        }
+        if($scope.free == null){
+          if($scope.inventoryCheck.length<8){
+            $scope.med.inventorySlot = $scope.inventoryPossible[$scope.inventoryCheck.length];
+          }
+        }
+        $scope.med.dispensingTime.forEach(function(elem){
+          $scope.scheduleitem = { 
+          pillName:$scope.med.pillName,
+          dispensingTime:elem
+        }
+
+          $scope.schedule.schedule.push($scope.scheduleitem);
+          //only used once
+          //$scope.schedule.schedule.splice(0,1);
+
+        });
+
+       $scope.med.dateAdded = new Date();
+
        _med.create($scope.med)
        .then(function() {
-          // check to the medication was added to the inventory
+        console.log($scope.med);
+          
+          _med.updateSchedule($scope.schedule._id,{schedule:$scope.schedule.schedule}).then(function(){
+            // check to the medication was added to the inventory
           $state.go('inventory');
+          });
+
+          
         });
       //$scope.med.inventorySlot = Math.floor((Math.random() * 8) + 1);
 

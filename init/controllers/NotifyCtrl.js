@@ -16,14 +16,14 @@ exports.sendNotification = function(req, res, next){
 		var to = '+1' + req.body.notifyNumber ;
 
 
-		var TMClient = require('textmagic-rest-client');
-		var key = 'hchVUWOoNmkPBILdddbS1aN4gHy32t';
-		var c = new TMClient('brandonc', key);
-		c.Messages.send({text:message, phones:to}, function(err, res){
-		    console.log('Messages.send()', err, res);
-		});
+		// var TMClient = require('textmagic-rest-client');
+		// var key = 'hchVUWOoNmkPBILdddbS1aN4gHy32t';
+		// var c = new TMClient('brandonc', key);
+		// c.Messages.send({text:message, phones:to}, function(err, res){
+		//     console.log('Messages.send()', err, res);
+		// });
 
-		/*
+	
 
 		var accountSid = 'ACe47465cf820637c1a8d4d9feb6c3df08';
 		var authToken = "da0848bdeeb77e538927ba0203af4d1f";
@@ -37,6 +37,6 @@ exports.sendNotification = function(req, res, next){
 			    return res.send(data)
 		});
 
-		*/
+	
 	}
 }

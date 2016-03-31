@@ -41,6 +41,48 @@ body {
 	color:#b56969;
 }
 
+.navbar-inv {
+  width: 100%;
+    text-align: center;
+    > li {
+      float: none;
+      display: inline-block;
+    }
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  user-select: none; 
+}
+
+.weatherForm {
+  background-color: #d9edf7;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.locationForm {
+  background-color: #d9edf7;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.pBar{
+  position: absolute; 
+  width: 95%; 
+  bottom: 5%;
+}
+
+.titleBackground {
+  background-color: #b56969 ;
+  padding: 5px 5px 20px 5px;
+  border-radius: 55px;
+  color: #3b3a36;
+  width:20%;
+}
+
 a {
   color: #b56969;
 }
@@ -60,6 +102,7 @@ footer {
     font-size: 12px;
 
 }
+
 /* medication form styling */
 #form-container{ 
 	background:#fff; 

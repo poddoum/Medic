@@ -17,12 +17,19 @@ function dispensingController($scope, $stateParams,$state, _med,mySocket) {
 	_med.getOne($stateParams.medID).then(function(data) {
    		$scope.med = data.data;
    		$scope.date = new Date();
+   		mySocket.emit('dispense',
+   			{
+   				inventory:$scope.med.inventorySlot,
+   				amount:$scope.med.dosage 
+   		})
    });
+
 
 	mySocket.on('sent',function(data){
 		console.log(typeof data); 
 		console.log(data.length); 
-		if(data == 'HIGH\r'){
+    console.log(data);
+		if(data == '1\r'){
 	
 		$state.go('inventory');
 		}  

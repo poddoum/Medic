@@ -7,7 +7,10 @@ angular.module('autoMedic', [
   'mdo-angular-cryptography',
   'ui.bootstrap',
   'angular-virtual-keyboard',
-  'ds.clock'
+  'ds.clock',
+  'ngSanitize',
+  'weatherModule'
+
 ])
 .config(['VKI_CONFIG', function(VKI_CONFIG) {
 			VKI_CONFIG.layout.Numerico = {

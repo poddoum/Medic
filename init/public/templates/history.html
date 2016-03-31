@@ -5,12 +5,15 @@
       <i class="glyphicon glyphicon-home"></i>&nbsp;Go Back</a>
  </div>
 </div>
-<h2 class="text-center">Medication History</h2>
+
+
+<h2 class="text-center">Medication History</h2><br>
 
 <div class="container">
+  <form class="locationForm">
 <div class="input-group input-group-lg">
   <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search"></span> Search</span>
-	<input type="text" class="form-control" placeholder="Enter Pill Name" ng-model="searchPill" ng-virtual-keyboard="{relative: false}" aria-describedby="basic-addon1"/> 
+  <input type="text" class="form-control" placeholder="Enter Pill Name" ng-model="searchPill" ng-virtual-keyboard="{relative: false}" aria-describedby="basic-addon1"/> 
   </div>
   
   <br>  
@@ -23,19 +26,20 @@
       </tr>
     </thead>
     <tbody>
-    	<tr ng-repeat="log in dispensed | orderBy:'dateDispensed':true | filter:searchPill">
+      <tr ng-repeat="log in dispensed | orderBy:'dateDispensed':true | filter:searchPill">
 
-				<td filter="{ 'pillName': 'text' }">
-					{{log.pillName}}</td>
-				<td>
-					{{log.dosage}}</td>
-				<td>
-					{{log.dateDispensed | date:"h:mma 'on' MMM d, y"}}</td>
+        <td filter="{ 'pillName': 'text' }">
+          {{log.pillName}}</td>
+        <td>
+          {{log.dosage}}</td>
+        <td>
+          {{log.dateDispensed | date:"h:mma 'on' MMM d, y"}}</td>
 
-			</tr>
+      </tr>
       
     </tbody>
   </table>
+</form>
 </div>
 <!--
 

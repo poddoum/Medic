@@ -43,6 +43,15 @@ io.on('connection',function(socket){
  
      });
 
+    socket.on('dispense', function (data) {
+          if(data.amount<10){
+            data.amount = "0"+data.amount;
+          }
+          SerialPort.write("01"+(data.inventory-1)+data.amount+"\n");
+          console.log("01"+(data.inventory-1)+data.amount+"\n");
+ 
+     });
+
         //Handles data sent ON COM port
     SerialPort.on("data", function (data) {
       //sys.puts("here: "+data);
