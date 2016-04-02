@@ -18,6 +18,7 @@ function scheduleController($scope,$interval, _med){
 //     return a<b ? -1 : a>b ? 1 : 0;
 // 	});
 // });
+/*
 	_med.getAll().then(function(data){
 		$scope.med=data.data;
 		$scope.newschedule =[];
@@ -52,9 +53,9 @@ function scheduleController($scope,$interval, _med){
 
 
 
-	$interval(callnow, 120000); // 2 minutes, callAtInterval called
+	//$interval(callnow, 120000); // 2 minutes, callAtInterval called
 
-	$scope.callAnow = callnow;
+	//$scope.callAnow = callnow;
 	  
 	function callnow() {
 	    $scope.date =  new Date();
@@ -82,6 +83,6 @@ function scheduleController($scope,$interval, _med){
 	// 		$scope.schedule.splice(index,1);
 	// 	}
 	// });
-  
+  */
 
 }

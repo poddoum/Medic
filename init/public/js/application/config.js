@@ -120,7 +120,28 @@ function config($stateProvider, $urlRouterProvider,$cryptoProvider) {
       url:'/summary',
       templateUrl:'templates/medform-summary.html'
     })
+    // After completing the Medication form
+    .state('insert', 
+      {url:'/insert/:medID',
+      templateUrl: 'templates/insert.html',
+      controller: 'insertController' 
+    })
+    // A DeBug Page
+    .state('codes',{
+      url:'/codes',
+      templateUrl: 'templates/codes.html',
+      controller: 'codesController' 
+    })
+
+      // A DeBug Page
+    .state('about',{
+      url:'/about',
+      templateUrl: 'templates/about.html',
+      controller: 'aboutController' 
+    })
     ;
+
+
 
   // Declare our default state to be the home state
   $urlRouterProvider.otherwise('/');

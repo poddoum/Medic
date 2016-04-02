@@ -12,16 +12,22 @@ mainController.$inject = [
 ];
 
 function mainController($scope, $state, $interval, _med) {
+
 _med.getAll().then(function(data){
-		console.log(data.data);
-		$scope.med = data.data;  
+		$scope.med=data.data;
 		$scope.newschedule =[];
 
 		data.data.forEach(function(elem){
 			elem.dispensingTime.forEach(function(element){
+				$scope.temp = new Date(element); 
 				$scope.newone = {
+					userName:elem.userName,
+					dosage:elem.dosage,
+					notifyNumber:elem.notifyNumber,
 					pillName:elem.pillName,
-          			dispensingTime:element
+          			dispensingTime:element,
+          			mytime: $scope.temp.getHours()*3600 + $scope.temp.getMinutes()*60 +$scope.temp.getSeconds(),
+          			timediff:null
 				}
 				$scope.newschedule.push($scope.newone);
 			});
@@ -31,16 +37,63 @@ _med.getAll().then(function(data){
 	    b = new Date(b.dispensingTime);
 	    return a<b ? -1 : a>b ? 1 : 0;
 		});
+	});
+	
+	$scope.$on('myreload',function(stuff){
+	 _med.getAll().then(function(data){
+		$scope.med=data.data;
+		$scope.newschedule =[];
+
+		data.data.forEach(function(elem){
+			elem.dispensingTime.forEach(function(element){
+				$scope.temp = new Date(element); 
+				$scope.newone = {
+					userName:elem.userName,
+					dosage:elem.dosage,
+					notifyNumber:elem.notifyNumber,
+					pillName:elem.pillName,
+          			dispensingTime:element,
+          			mytime: $scope.temp.getHours()*3600 + $scope.temp.getMinutes()*60 +$scope.temp.getSeconds(),
+          			timediff:null
+				}
+				$scope.newschedule.push($scope.newone);
+			});
+		});
+		$scope.newschedule.sort(function(a, b) {
+	    a = new Date(a.dispensingTime);
+	    b = new Date(b.dispensingTime);
+	    return a<b ? -1 : a>b ? 1 : 0;
+		});
+	});
 
 	});
 
-	$interval(callAtInterval, 500000); // 5 minutes, callAtInterval called
+
+
+	$scope.thedate = new Date();
+
+	$interval(callAtInterval, 120000); // 2 minutes, callAtInterval called
 
 	$scope.callAtInterval = callAtInterval;
 	  
 	function callAtInterval() {
-	    $scope.test = new Date();
+		$scope.date =  new Date();
+		$scope.hour = $scope.date.getHours(); 
+		$scope.currenttime= $scope.hour*3600+$scope.date.getMinutes()*60+$scope.date.getSeconds();
+		$scope.newschedule.forEach(function(elem){
+			//console.log(elem); 
+			//elem.timediff=$scope.currenttime-elem.mytime;
 
+			if(Math.abs($scope.currenttime-elem.mytime)<=60){
+				_med.notify(elem).then(function(){
+					console.log(elem);
+				});
+				
+
+			}
+
+		}); 
+	   
 	}
 
 }

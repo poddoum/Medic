@@ -39,27 +39,34 @@
     <table class="table table-striped">
       <th style="visibility:hidden;"></th>
       <tbody>
-        <tr>
+        <!--<tr>
           <td><strong class="col-xs-4">Medication Name</strong> {{med.pillName}}</td>
         </tr>
-        <tr>
-          <td><strong class="col-xs-4">Inventory Slot</strong> {{med.inventorySlot}}</td>
-        </tr>
-        <tr>
-          <td><strong class="col-xs-4">Amount Remaining</strong> {{med.amount}}</td>
-        </tr>
+
           <tr>
           <td><strong class="col-xs-4">Last Dispensed</strong> {{med.lastDispensed | date:"MMM d, y h:mma"}}</td>
-        </tr>
+             </tr>
+      -->
 
         <tr>
           <td><strong class="col-xs-4">User</strong> {{med.userName}}</td>
         </tr>
 
-        <tr>
+          <tr>
+          <td><strong class="col-xs-4">Amount Remaining</strong> {{med.amount}}</td>
+        </tr>
+           <tr>
           <td><strong class="col-xs-4">Medication Dispensed per Dose</strong> {{med.dosage}}</td>
         </tr>
 
+        <tr>
+          <td><strong class="col-xs-4">Inventory Slot</strong> {{med.inventorySlot}}</td>
+        </tr>
+      
+     
+
+
+     
 
 
 

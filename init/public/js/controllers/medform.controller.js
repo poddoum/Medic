@@ -6,10 +6,11 @@ angular.module('autoMedic')
 medformController.$inject = [
   '$scope',
   '$state',
+  '$window',
   '_med'
 ];
 
-function medformController($scope, $state, _med) {
+function medformController($scope, $state, $window, _med) {
   $scope.createMed= createMed;
   $state.go('medform.medication');
 
@@ -103,6 +104,7 @@ function medformController($scope, $state, _med) {
         $scope.med.inventorySlot = $scope.free;
         }
         if($scope.free == null){
+          // may need to add if there is no pills
           if($scope.inventoryCheck.length<8){
             $scope.med.inventorySlot = $scope.inventoryPossible[$scope.inventoryCheck.length];
           }
@@ -122,14 +124,15 @@ function medformController($scope, $state, _med) {
        $scope.med.dateAdded = new Date();
 
        _med.create($scope.med)
-       .then(function() {
-        console.log($scope.med);
+       .then(function(mydata) {
+        console.log(mydata);
           
-          _med.updateSchedule($scope.schedule._id,{schedule:$scope.schedule.schedule}).then(function(){
+          //_med.updateSchedule($scope.schedule._id,{schedule:$scope.schedule.schedule}).then(function(){
+          // refresh the window  
+          $scope.$emit('myreload',{r:1});
             // check to the medication was added to the inventory
-          $state.go('inventory');
-          });
-
+          $state.go('insert',{medID:mydata.data._id});
+          
           
         });
       //$scope.med.inventorySlot = Math.floor((Math.random() * 8) + 1);

@@ -1,12 +1,23 @@
 <div class="container"><br/><br/>
 
-	<div class="col-xs-3 col-xs-offset-0" style="text-align:center;">
+	<div class = "row">
+
+	<div class="col-xs-4" style="text-align:center;">
 
 		<h1>Auto<span style = "color:#b56969">MED</span>ic</h1>
-		<img class ="homePill" src="/images/pillm.png"><br>
-	</div>
+		<img class ="homePill" src="/images/pillm.png"><br><br>
+			<div style="text-align:center; background-color:#d9edf7; padding:20px; border-radius:20px;">
+	        	<h1>Next Up</h1>
 
-	<div class="col-xs-6">
+		    	<div ng-repeat="med in nextUp">
+		    		<p><strong> {{med.pillName}} at {{med.dispensingTime| date:'h:mm a'}}</strong></p>
+		    	</div>
+
+	    	</div>
+		</div>
+
+
+	<div class="col-xs-8">
 		<todays-weather
 		  units='Metric'
 		  custom-size="125"
@@ -28,19 +39,21 @@
     	
 	</div>
 
-	<div class="col-xs-3">
+	<!--<div class="col-xs-3">
 	    <div >
 	      	<div style="text-align:center; background-color:#d9edf7; padding:20px; border-radius:20px;">
-	        	<h1>Schedule</h1>
+	        	<h1>Next Up</h1>
 
-		    	<div ng-repeat="med in meds">
-		    		<p> {{med.pillName}} </p>
+		    	<div ng-repeat="med in nextUp">
+		    		<p><strong> {{med.pillName}} at {{med.dispensingTime| date:'h:mm a'}}</strong></p>
 		    	</div>
 
 	    	</div>
 		</div>
 	</div>
-
-
-
+-->
+<!--<p>
+{{newschedule}}
+</p>-->
+</div>
 </div>
