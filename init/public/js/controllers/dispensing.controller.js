@@ -36,7 +36,7 @@ function dispensingController($scope, $stateParams,$state, _med,mySocket) {
 		console.log(typeof data); 
 		console.log(data.length); 
     console.log(data);
-		if(data == '1\r'){
+		if(data == '011\r'){
 	
 		$state.go('inventory');
 		}  

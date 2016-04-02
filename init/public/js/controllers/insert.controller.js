@@ -14,6 +14,8 @@ insertController.$inject = [
 ];
 function insertController($scope, $stateParams,$state, _med,mySocket) {
 
+  $scope.showInstruction = false; 
+
 	_med.getOne($stateParams.medID).then(function(data) {
    		$scope.med = data.data;
    		mySocket.emit('insert',
@@ -28,10 +30,14 @@ function insertController($scope, $stateParams,$state, _med,mySocket) {
 		console.log(typeof data); 
 		console.log(data.length); 
     console.log(data);
-		if(data == '1\r'){
-	
-		$state.go('inventory');
+		if(data == '021\r'){
+	     $scope.showInstruction = true;
+		
 		}  
 	}); 
+
+  
+
+
 
 }

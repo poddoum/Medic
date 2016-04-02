@@ -52,6 +52,16 @@ io.on('connection',function(socket){
  
      });
 
+    socket.on('insert', function (data){
+        SerialPort.write("02"+(data.inventory-1)); 
+        console.log("02"+(data.inventory-1)); 
+    });
+
+     socket.on('codes', function (data){
+        SerialPort.write(data.code+"\n"); 
+         console.log(data.code);
+    });
+
         //Handles data sent ON COM port
     SerialPort.on("data", function (data) {
       //sys.puts("here: "+data);
