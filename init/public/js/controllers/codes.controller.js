@@ -18,9 +18,11 @@ function codesController($scope, mySocket) {
 
   function onSend(){
     $scope.codes.push($scope.thecode);
+    console.log($scope.thecode);
     
     mySocket.emit('codes',{
        code: $scope.thecode
+     }
     );
 
   }  

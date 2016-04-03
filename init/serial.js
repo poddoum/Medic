@@ -12,7 +12,7 @@ serialport.list(function (err, ports) {
 });
 
 //config serial port
-SerialPort = new SerialPort("COM5",{
+SerialPort = new SerialPort("COM9",{
 	baudrate:9600,
 
 	parser:serialport.parsers.readline("\n")
@@ -53,13 +53,13 @@ io.on('connection',function(socket){
      });
 
     socket.on('insert', function (data){
-        SerialPort.write("02"+(data.inventory-1)); 
+        SerialPort.write("02"+(data.inventory-1) +"\n"); 
         console.log("02"+(data.inventory-1)); 
     });
 
      socket.on('codes', function (data){
         SerialPort.write(data.code+"\n"); 
-         console.log(data.code);
+         console.log(data.code+"\n");
     });
 
         //Handles data sent ON COM port
