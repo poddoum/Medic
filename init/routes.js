@@ -14,6 +14,9 @@ var ScheduleCtrl = require("./controllers/ScheduleCtrl.js");
 
 router.post('/notify',NotifyCtrl.sendNotification);
 
+//Send SMS reminder message
+router.post('/reminder',NotifyCtrl.sendReminder);
+
 // Create a Pill
 router.post('/meds',PillCtrl.createPill);
 

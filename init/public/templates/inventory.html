@@ -91,6 +91,18 @@
               </a>  
             </td>
           </tr>
+
+          <tr>
+            <td>
+              <div class="input-group col-xs-6 col-xs-offset-3">
+                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-plus"></span></span>
+                <input type="number" class="form-control" placeholder="Number of Pills to Insert" ng-model="m1" ng-virtual-keyboard="{kt: 'Numerico'}" aria-describedby="basic-addon1"> 
+                <span class="input-group-btn">
+                  <button class="btn btn-default" ng-click="onInsert(med,$index,m1)">Insert</button>
+                </span>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

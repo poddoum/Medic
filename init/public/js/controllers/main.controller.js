@@ -85,7 +85,7 @@ _med.getAll().then(function(data){
 			//elem.timediff=$scope.currenttime-elem.mytime;
 
 			if(Math.abs($scope.currenttime-elem.mytime)<=60){
-				_med.notify(elem).then(function(){
+				_med.reminder(elem).then(function(){
 					console.log(elem);
 				});
 				

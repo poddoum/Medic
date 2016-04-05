@@ -24,7 +24,8 @@
    
       <h4><strong>Brandon Coles</strong></h4><br>
       <a ng-model="collapsed" ng-click="collapsed=!collapsed">
-      <img src="/images/brandon.jpg" class="img-circle">
+      <img src="/images/brandon.jpg" class="img-circle" ng-if ="!collapsed">
+      <img src="/images/brandon2.jpg" class="img-circle" ng-if ="collapsed">
   </a>
    <div ng-show="collapsed">
    	<br>
@@ -35,7 +36,8 @@
     <div class="col-xs-4">
       <h4><strong>Eric Dyer</strong></h4><br>
       <a ng-model="collapsed" ng-click="collapsed=!collapsed">
-      <img src="/images/eric.jpg" class="img-circle">
+        <img src="/images/eric3.jpg" class="img-circle" ng-if ="!collapsed">
+      <img src="/images/eric2.jpg" class="img-circle" ng-if ="collapsed">
   </a>
       <div ng-show="collapsed">
    	<br>
@@ -59,7 +61,8 @@
     	
       <h4><strong>Maxim Poddoubnyi</strong><h4><br>
       	<a ng-model="collapsed" ng-click="collapsed=!collapsed">
-      <img src="/images/max.jpg" class="img-circle">
+          <img src="/images/max.jpg" class="img-circle" ng-if ="!collapsed">
+      <img src="/images/max2.bmp" class="img-circle"  ng-if ="collapsed">
         </a>
          <div ng-show="collapsed">
    	<br>

@@ -8,12 +8,12 @@ inventoryController.$inject = [
   '$scope',
   '_med',
   '$state',
-  '$window',
+  'mySocket',
 
   // Resolves
   'meds'
 ];
-function inventoryController($scope, _med, $state, $window, meds) {
+function inventoryController($scope, _med, $state,mySocket, meds) {
   $scope.meds = meds.data;
   console.log(meds);
 
@@ -41,6 +41,11 @@ function inventoryController($scope, _med, $state, $window, meds) {
 
     $scope.currentIndex = --$scope.currentIndex ;
 
+    mySocket.emit('delete',
+        {
+          inventory:$scope.med.inventorySlot, 
+      });
+
     _med.delete(med._id)
       .then(function() {
 
@@ -48,9 +53,27 @@ function inventoryController($scope, _med, $state, $window, meds) {
         $scope.meds.splice(index, 1);
           //reload for main controller to update
         
-        $window.location.reload();     
+        $scope.$emit('myreload',{r:1});     
 
       });
+  }
+
+  $scope.onInsert = onInsert;
+
+//changes the amount 
+  function onInsert(med,index,data){ 
+  $scope.meds[index].amount = $scope.meds[index].amount+ data;
+
+  $scope.changeIt = { 
+          'amount': $scope.meds[index].amount
+        };
+
+
+  _med.update(med._id, $scope.changeIt)
+    .then(function(){
+       $state.go('insert',{medID:med._id});
+    }); 
+
   }
 
   $scope.dispensed={}; 

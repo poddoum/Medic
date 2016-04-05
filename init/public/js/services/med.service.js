@@ -52,6 +52,11 @@ function _med($http) {
     return $http.post('/notify',med);
   }
 
+  // reminder to take medication 
+  service.reminder = function(med){
+    return $http.post('/reminder',med);
+  }
+
   // Get Schedule
   service.getSchedule = function(){
     return $http.get('/schedule');

@@ -54,8 +54,15 @@ io.on('connection',function(socket){
 
     socket.on('insert', function (data){
         SerialPort.write("02"+(data.inventory-1) +"\n"); 
-        console.log("02"+(data.inventory-1)); 
+        console.log("02"+(data.inventory-1) +"\n"); 
     });
+
+
+    socket.on('delete', function (data){
+        SerialPort.write("03"+(data.inventory-1) +"\n"); 
+        console.log("03"+(data.inventory-1)+"\n"); 
+    });
+
 
      socket.on('codes', function (data){
         SerialPort.write(data.code+"\n"); 
