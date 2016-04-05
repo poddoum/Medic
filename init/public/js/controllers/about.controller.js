@@ -24,6 +24,10 @@ $scope.slides = [{image:'/images/pill_1.jpg',id:0},
                  {image:'/images/pill_8.jpg',id:7},
                  {image:'/images/pill_9.jpg',id:8},
                  {image:'/images/pill_10.jpg',id:9},
-                 {image:'/images/pill_11.jpg',id:10}];
+                 {image:'/images/pill_11.jpg',id:10},
+                  {image:'/images/pill_12.jpg',id:11},
+                   {image:'/images/pill_13.jpg',id:12},
+                    {image:'/images/pill_14.jpg',id:13},
+                    {image:'/images/pill_15.jpg',id:14}];
 
 }

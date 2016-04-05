@@ -43,7 +43,7 @@ function inventoryController($scope, _med, $state,mySocket, meds) {
 
     mySocket.emit('delete',
         {
-          inventory:$scope.med.inventorySlot, 
+          inventory:$scope.meds[index].inventorySlot, 
       });
 
     _med.delete(med._id)
