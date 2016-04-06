@@ -11,6 +11,7 @@ var app = express();
 
 // connecting to the Database 
 var mongoose = require('mongoose');
+//mongoose.connect("mongodb://Medic:1234@ds039145.mlab.com:39145/medsdb",function(err){
 mongoose.connect("mongodb://Medic:1234@localhost:27017/medsdb",function(err){
     if(err) console.log(err); 
 });
